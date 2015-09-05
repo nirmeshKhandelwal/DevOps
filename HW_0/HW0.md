@@ -1,3 +1,4 @@
+# First 4 levels
 ## Introduction to git commits
 
 ### Level 1
@@ -25,6 +26,7 @@
 ### ScreenShot
 ![First 4 level progress](first_4.png)
 
+# Bonus levels
 ## Detach yo' Head
 
 ### Level 1
@@ -53,3 +55,18 @@
 ## Bonus screen shot
 
 ![Bonus](bonus.png)
+
+# Git hooks
+
+### Hook script content
+```python
+#!/usr/bin/env python
+
+import webbrowser
+
+# open a public URL, in this case, the webbrowser docs
+url = "https://nodejs.org/en/"
+webbrowser.open(url,new=1)
+```
+### Demo Screencast
+[Demo](https://vid.me/HLW0)
