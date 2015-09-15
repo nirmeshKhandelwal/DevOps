@@ -9,3 +9,8 @@
 2. Attach a full access policy with the user. After you have created the IAM user and generated the access keys, by default the user is not allowed to perform all the actions. One need to select a access policy and attach it to user. 
 
 - Go to https://console.aws.amazon.com/iam/home#policies ->  Search for AmazonEC2FullAccess -> Hit 'create Policy' button -> Select 'Copy an AWS Managed Policy' -> 'AdministratorAccess' -> 'Create Policy'. Once the policy is created, select it and attach to your user.
+
+#### Install Ansible on control machine: 
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
