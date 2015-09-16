@@ -1,6 +1,5 @@
 var AWS = require('aws-sdk');
 
-
 exports.createInstance = function(onResponse){
   var ec2 = new AWS.EC2({region: 'us-east-1', maxRetries: 15, apiVersion: 'latest'});
 
@@ -10,6 +9,8 @@ exports.createInstance = function(onResponse){
     MinCount: 1, MaxCount: 1,
     KeyName: 'hw_1'
   };
+
+  console.log('[INFO] Spinning up AWS instance...')
 
   // Create the instance
   ec2.runInstances(params, function(err, data) {
