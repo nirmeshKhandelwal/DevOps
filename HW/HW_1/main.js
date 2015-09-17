@@ -51,11 +51,20 @@ digitalOcean.createInstance(function(err, data){
     } 
 });
 
+var i = 0;  // dots counter
+var lines = ['|', '/', '-', '\\']
+var process_loop = setInterval(function() {
+  process.stdout.clearLine();  // clear current text
+  process.stdout.cursorTo(5);  // move cursor to beginning of line
+  i = (i + 1) % 4;
+  process.stdout.write(lines[i]);  // write text
+}, 300);
+
 function call_playbook(){
     console.log('[INFO] Inventory file generated')
     console.log('[INFO] Waiting for 60 second so that all the machines are ready.');
     console.log('[INFO] Running the Playbook..')
-    function puts(error, stdout, stderr) { sys.puts(stdout) }
+    function puts(error, stdout, stderr) { sys.puts(stdout); clearInterval(process_loop) }
     exec("ansible/bin/ansible-playbook playbook.yml -i inventory", puts);
 }
 

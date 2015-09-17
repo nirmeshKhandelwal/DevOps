@@ -1,3 +1,6 @@
+#### Link to screencast:
+https://youtu.be/1Pd_6K1Ekbw
+
 #### Requirements for Digital ocean
 1. Upload your private key. Create authentication token. Set authentication token as enviornment variable. 
 ```
