@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "needle": "~0.10.0",
-    "aws-sdk": "~2.2.0"
+    "aws-sdk": "~2.2.0",
+    "terminal-kit": "~0.15.10"
   }
 }
