@@ -18,7 +18,7 @@ var next = function(callback) {
 // Create a proxy object for each target.
 var proxies = [] 
 for(var i=0; i<servers.length; i++){
-  proxies.push( new proxy.createProxyServer({target: target}) );
+  proxies.push( new proxy.createProxyServer({target: servers[i]}) );
 }
 
 var proxy = function(req, res) {
