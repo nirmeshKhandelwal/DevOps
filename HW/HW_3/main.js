@@ -9,12 +9,7 @@ var log = bunyan.createLogger({
   name: 'myapp',
   streams: [
     {
-      level: 'info',
-      stream: 'myapp-info.log'        // log INFO and above to stdout
-    },
-    {
-      level: 'error',
-      path: 'myapp-error.log'         // log ERROR and above to a file
+      path: './myapp-error.log'         // log ERROR and above to a file
     }
   ]
 });
