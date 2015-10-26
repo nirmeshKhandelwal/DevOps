@@ -18,9 +18,9 @@ node main.js 3002
 - Hit multiple urls on `http://localhost/`. The proxy will redirect them evenly on 3000, 3001 and 3002 instances. This is implemented using circular list in redis `RPOPLPUSH`.
 - In order to make sure that the proxy works, we write the logs in `myapp-error.log` alongwith the port number of the server. To count the number of requests served by each instance, use 
 ```bash
-grep '3000' myapp-error.log
-grep '3001' myapp-error.log
-grep '3002' myapp-error.log
+grep '3000' myapp-error.log | wc -l
+grep '3001' myapp-error.log | wc -l
+grep '3002' myapp-error.log | wc -l
 ```
 - ![proxy](img/proxy-server.gif)
 
