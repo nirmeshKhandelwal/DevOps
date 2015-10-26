@@ -2,66 +2,24 @@ Cache, Proxies, Queues
 =========================
 
 ### Get, Set and Recent
-![get-set-recent](img/get-set-recent.gif)
+- ![get-set-recent](img/get-set-recent.gif)
+
+### Image upload
+- ![img upload](img/image_upload.gif)
+
+### Proxy server
+- Start 3 different servers on port 3000, 3001 and 3002. The main.js accepts port number as command line argument
+```bash
+node main.js 3000
+node main.js 3001
+node main.js 3002
+```
+- Start proxy server on port 80: `sudo node proxy.js`. Note: sudo access required to start server on port 80.
+- Hit multiple urls on `http://localhost/`. The proxy will redirect them evenly on 3000, 3001 and 3002 instances. This is implemented using circular list in redis `RPOPLPUSH`.
+- ![proxy](img/proxy-server.gif)
+
 
 ### Setup
 
 * Clone this repo, run `npm install`.
 * Install redis and run on localhost:6379
-
-### A simple web server
-
-Use [express](http://expressjs.com/) to install a simple web server.
-
-	var server = app.listen(3000, function () {
-
-	  var host = server.address().address
-	  var port = server.address().port
-
-	  console.log('Example app listening at http://%s:%s', host, port)
-	})
-
-Express uses the concept of routes to use pattern matching against requests and sending them to specific functions.  You can simply write back a response body.
-
-	app.get('/', function(req, res) {
-	  res.send('hello world')
-	})
-
-### Redis
-
-You will be using [redis](http://redis.io/) to build some simple infrastructure components, using the [node-redis client](https://github.com/mranney/node_redis).
-
-	var redis = require('redis')
-	var client = redis.createClient(6379, '127.0.0.1', {})
-
-In general, you can run all the redis commands in the following manner: client.CMD(args). For example:
-
-	client.set("key", "value");
-	client.get("key", function(err,value){ console.log(value)});
-
-### An expiring cache
-
-Create two routes, `/get` and `/set`.
-
-When `/set` is visited, set a new key, with the value:
-> "this message will self-destruct in 10 seconds".
-
-Use the expire command to make sure this key will expire in 10 seconds.
-
-When `/get` is visited, fetch that key, and send value back to the client: `res.send(value)`
-
-
-### Recent visited sites
-
-- Create a new route, `/recent`, which will display the most recently visited sites.
-
-### Cat picture uploads: queue
-
-- Use curl to help you upload easily.
-- `curl -F "image=@./img/morning.jpg" localhost:3000/upload`
-- Note: make sure the name of the input is 'image' as specified above.
-
-
-
-
-### Proxy server
