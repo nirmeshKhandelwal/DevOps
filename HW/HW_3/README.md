@@ -1,6 +1,9 @@
 Cache, Proxies, Queues
 =========================
 
+### Get, Set and Recent
+![Imgur](http://i.imgur.com/S6DHxge.gif)
+
 ### Setup
 
 * Clone this repo, run `npm install`.
