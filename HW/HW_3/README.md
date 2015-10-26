@@ -2,7 +2,7 @@ Cache, Proxies, Queues
 =========================
 
 ### Get, Set and Recent
-![Imgur](http://i.imgur.com/S6DHxge.gif)
+![get-set-recent](img/get-set-recent.gif)
 
 ### Setup
 
