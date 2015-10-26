@@ -11,10 +11,10 @@ Cache, Proxies, Queues
 Use [express](http://expressjs.com/) to install a simple web server.
 
 	var server = app.listen(3000, function () {
-	
+
 	  var host = server.address().address
 	  var port = server.address().port
-	
+
 	  console.log('Example app listening at http://%s:%s', host, port)
 	})
 
@@ -45,35 +45,20 @@ When `/set` is visited, set a new key, with the value:
 
 Use the expire command to make sure this key will expire in 10 seconds.
 
-When `/get` is visited, fetch that key, and send value back to the client: `res.send(value)` 
+When `/get` is visited, fetch that key, and send value back to the client: `res.send(value)`
 
 
 ### Recent visited sites
 
-Create a new route, `/recent`, which will display the most recently visited sites.
-
-There is already a global hook setup, which will allow you to see each site that is requested:
-
-	app.use(function(req, res, next) 
-	{
-	...
-
-Use the lpush, ltrim, and lrange redis commands to store the most recent 5 sites visited, and return that to the client.
+- Create a new route, `/recent`, which will display the most recently visited sites.
 
 ### Cat picture uploads: queue
 
-Implement two routes, `/upload`, and `/meow`.
- 
-A stub for upload and meow has already been provided.
+- Use curl to help you upload easily.
+- `curl -F "image=@./img/morning.jpg" localhost:3000/upload`
+- Note: make sure the name of the input is 'image' as specified above.
 
-Use curl to help you upload easily.
 
-	curl -F "image=@./img/morning.jpg" localhost:3000/upload
 
-Have `upload` store the images in a queue.  Have `meow` display the most recent image to the client and *remove* the image from the queue.
 
 ### Proxy server
-
-Bonus: How might you use redis and express to introduce a proxy server?
-
-See [rpoplpush](http://redis.io/commands/rpoplpush)

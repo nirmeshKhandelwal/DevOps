@@ -3,6 +3,23 @@ var multer = require('multer')
 var express = require('express')
 var fs = require('fs')
 var app = express()
+var bunyan = require('bunyan');
+
+var log = bunyan.createLogger({
+  name: 'myapp',
+  streams: [
+    {
+      level: 'info',
+      stream: 'myapp-info.log'        // log INFO and above to stdout
+    },
+    {
+      level: 'error',
+      path: 'myapp-error.log'         // log ERROR and above to a file
+    }
+  ]
+});
+
+
 var upload = multer({
     dest: './uploads/'
   })
@@ -15,8 +32,10 @@ app.use(function(req, res, next) {
 	//console.log(req)
   console.log(req.url);
   console.log(req.get('host'));
-  client.lpush('recentUrl', req.protocol + '://' + req.get('host') + req.url)
+  var recentUrl = req.protocol + '://' + req.get('host') + req.url
+  client.lpush('recentUrl', recentUrl)
   client.ltrim('recentUrl', 0, 4)
+  log.info(port + '|' + recentUrl)   //Log the info  alongwith port to make sure that proxy works fine
   next();
 });
 
@@ -103,32 +122,11 @@ app.get('/meow', function(req, res) {
 })
 
 
-// HTTP SERVER 1
+// HTTP SERVER
+// In order to create multiple instances on different port
+// take port number as command line argument
 var server1 = app.listen(port, function(err, val) {
   var host = this.address().address
   var port = this.address().port
   console.log('Example app listening at http://%s:%s', host, port)
 })
-
-/*
-// HTTP SERVER 2
-var server2 = app.listen(3001, function() {
-  var host = this.address().address
-  var port = this.address().port
-  console.log('Example app listening at http://%s:%s', host, port)
-})
-
-// HTTP SERVER 3
-var server3 = app.listen(3002, function() {
-  var host = this.address().address
-  var port = this.address().port
-  console.log('Example app listening at http://%s:%s', host, port)
-})
-
-// HTTP SERVER 3
-var server3 = app.listen(3003, function() {
-  var host = this.address().address
-  var port = this.address().port
-  console.log('Example app listening at http://%s:%s', host, port)
-})
-*/
