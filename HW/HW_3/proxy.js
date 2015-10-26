@@ -16,13 +16,10 @@ var next = function(callback) {
 }
 
 // Create a proxy object for each target.
-var proxies = servers.map(function(target) {
-  return new proxy.createProxyServer({
-    target: target,
-    ws: true,
-    xfwd: true
-  });
-});
+var proxies = [] 
+for(var i=0; i<servers.length; i++){
+  proxies.push( new proxy.createProxyServer({target: target}) );
+}
 
 var proxy = function(req, res) {
   console.log("request received")
