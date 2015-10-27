@@ -19,11 +19,12 @@ for(var i=0; i<servers.length; i++){
 
 var proxy = function(req, res) {
   console.log("request received")
-  //Use circular list of redis using RPOPLPUSH
+  // Use circular list of redis using RPOPLPUSH
+  // This will give each server in a round robin fashion
   client.rpoplpush('server_index', 'server_index', function(err, index) {
     if (err) throw err
     console.log(index)
-    var proxy = proxies[index];
+    var proxy = proxies[index];  // Choose the proxy based on index
     proxy.web(req, res);
   })
 }
