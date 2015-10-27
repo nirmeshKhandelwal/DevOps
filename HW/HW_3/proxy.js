@@ -11,10 +11,6 @@ client.rpush('server_index', 0)
 client.rpush('server_index', 1)
 client.rpush('server_index', 2)
 
-var next = function(callback) {
-
-}
-
 // Create a proxy object for each target.
 var proxies = [] 
 for(var i=0; i<servers.length; i++){
