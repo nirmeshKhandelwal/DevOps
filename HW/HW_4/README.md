@@ -22,4 +22,4 @@ Instruction for running the 4 containers:
 5. run `docker-compose up -d` inside the `part_2/second_vm/` directory.
 6. Make rest call to localhost:7379 in order to communicate to redis.
 
-[part ii demo](http://i.imgur.com/rxtev9L.gifv)
+![part ii demo](http://i.imgur.com/rxtev9L.gif)
