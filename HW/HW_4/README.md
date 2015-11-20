@@ -10,3 +10,14 @@ docker run -t -i --link first:file_io second curl file_io:9001    # Run second c
 ```
 
 ![part 1 demo](images/hw_4_part_1.gif)
+
+## Part 2
+
+Instruction for running the 4 containers:
+
+1) Create 2 separate Digital ocean droplets. Enable private networking between them so that they can have passwordless ssh.
+2) Install docker and docker-compose
+3) One first instance, run `docker-compose up` inside the `part_2/first_vm/` directory.
+4) One second droplet, edit the ip address inside `part_2/second_vm/docker-compose.yml` to poin the ip address of first droplet.
+5) run `docker-compose up -d` inside the `part_2/second_vm/` directory.
+6) Make rest call to localhost:7379 in order to communicate to redis.
