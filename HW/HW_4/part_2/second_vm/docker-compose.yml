@@ -1,12 +1,13 @@
-redis_cli: 
-  image: relateiq/redis-cli
+rediscli: 
+  image: anapsix/webdis
   links: 
-    - redis_ambassador:redis
+    - ambassador:redis
+  ports:
+    - 7379:7379
 
-redis_ambassador:
+ambassador:
   image: svendowideit/ambassador
-  container_name: redis_ambassador
   environment: 
-    - REDIS_PORT_6379_TCP=tcp://54.86.91.79:6379
+    - REDIS_PORT_6379_TCP=tcp://162.243.80.149:6379
   expose:
    - "6379"
