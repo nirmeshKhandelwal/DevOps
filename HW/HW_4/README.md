@@ -9,7 +9,7 @@ docker run -d --name first first              # Run the first containre
 docker run -t -i --link first:file_io second curl file_io:9001    # Run second container in linked mode to first container to get o/p
 ```
 
-![part 1 demo](images/hw_4_part_1.gif)
+![part 1 demo](http://i.imgur.com/ewDeI3b.gif)
 
 ## Part 2
 
