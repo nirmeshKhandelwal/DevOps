@@ -21,3 +21,5 @@ Instruction for running the 4 containers:
 4. One second droplet, edit the ip address inside `part_2/second_vm/docker-compose.yml` to poin the ip address of first droplet.
 5. run `docker-compose up -d` inside the `part_2/second_vm/` directory.
 6. Make rest call to localhost:7379 in order to communicate to redis.
+
+![part 2 demo](images/part_2.gif)
