@@ -42,7 +42,7 @@ git remote add green file:///home/nirmesh/semester_3/deploy/green.git
 
 The three git hooks required are given in part_3/ folder
 
-![Part II demo](http://i.imgur.com/yhuCh8n.gif)
+![Imgur](http://i.imgur.com/SrIIRnr.gif)
 
 
 
