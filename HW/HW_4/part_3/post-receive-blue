@@ -5,6 +5,5 @@
 
 sudo docker stop app_blue           
 sudo docker rm app_blue
-sudo docker rmi app_blue
 sudo docker pull localhost:5000/my_app:latest  
 sudo docker run -p 3080:8080 -d --name app_blue my_app
