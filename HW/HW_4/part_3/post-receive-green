@@ -5,6 +5,5 @@
 
 sudo docker stop app_green           
 sudo docker rm app_green
-sudo docker rmi app_green
 sudo docker pull localhost:5000/my_app:latest  
 sudo docker run -p 3081:8080 -d --name app_green my_app
