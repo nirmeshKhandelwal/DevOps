@@ -39,6 +39,9 @@ cd ~/App
 git remote add blue file:///home/nirmesh/semester_3/deploy/blue.git
 git remote add green file:///home/nirmesh/semester_3/deploy/green.git
 ```
+- Copy the hooks to appropriate repos, an name them appropriately.
+- Once all this is done, on each commit, the new docker image `my_app` will be created with latest code in repo and will be pushed to `localhost:5000/my_app:latest`.
+- On each push to either blue.git or green.git, the respective repositories will download the latest image from localhost:5000 and run them with respective names.
 
 The three git hooks required are given in part_3/ folder
 
