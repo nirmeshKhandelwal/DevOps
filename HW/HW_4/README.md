@@ -23,3 +23,31 @@ Instruction for running the 4 containers:
 6. Make rest call to localhost:7379 in order to communicate to redis.
 
 ![part ii demo](http://i.imgur.com/rxtev9L.gif)
+
+## Part 3
+- Initialization of bare repos:
+```bash
+# Initialize bare metal repos blue and green
+cd ~
+mkdir /home/nirmesh/semester_3/deploy/blue.git
+mkdir /home/nirmesh/semester_3/deploy/green.git
+cd blue.git && git init --bare
+cd green.git && git init --bare
+
+# Define remote of App
+cd ~/App
+git remote add blue file:///home/nirmesh/semester_3/deploy/blue.git
+git remote add green file:///home/nirmesh/semester_3/deploy/green.git
+```
+
+The three git hooks required are given in part_3/ folder
+
+
+
+
+
+
+
+
+
+
